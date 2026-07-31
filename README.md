@@ -1,5 +1,3 @@
-<h1 align="center">Gustavo Hitomi</h1>
-
 <p align="center">
   <em>cs @ usp · I like data engineering and rust, trying to build a startup + HFT</em>
 </p>
@@ -98,23 +96,4 @@ Neovim (Lua), kitty, zsh + powerlevel10k, and a one-shot `install.sh`. Reproduci
 
 ---
 
-### 📊 Stats
 
-<p align="center">
-    [![GitHub Streak](https://streak-stats.demolab.com?user=hitomi1&theme=dark)](https://git.io/streak-stats)
-</p>
-
-<p align="center">
-  <img alt="Streak" src="https://streak-stats.demolab.com/?user=hitomi1&theme=tokyonight&hide_border=true&background=00000000&ring=7aa2f7&fire=bb9af7&currStreakLabel=7aa2f7">
-</p>
-
-<p align="center"><sub>Language stats reflect public repositories — a good chunk of my Rust and Python lives in private ones.</sub></p>
-
----
-
-### 📫 Reach me
-
-<p align="center">
-  <a href="mailto:gustavohitomi@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"></a>
-  <a href="https://github.com/hitomi1"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"></a>
-</p>
