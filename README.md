@@ -8,7 +8,7 @@
 
 Most of what I build falls into one of two buckets:
 
-- **Systems that can't be wrong** — event-sourced data, engines, trading bots. 
+- **Systems that can't be wrong** — event-sourced data, ELT/ETL engines, trading bots. 
 - **Tools for games I actually play** — Magic: The Gathering trackers, Dota 2 analyzers. Small scope, real users, shipped.
 
 Mostly  **Python**, **Rust** and **TypeScript**.
@@ -55,26 +55,23 @@ Mostly  **Python**, **Rust** and **TypeScript**.
 
 #### 🏥 Zela — post-operative patient follow-up `private`
 
-Follow-up platform for small surgical teams, built as a pilot for a LASIK, orthopedists and general surgery. Patients answer short structured check-ins on the days their protocol schedules; a deterministic rules engine scores each one 🟢/🟡/🔴, and anything not green lands in a risk-ordered queue where the surgeon reviews it and records whether they agree with the triage.
+Follow-up platform for surgical teams, built as a pilot for a LASIK, orthopedists and general surgery. Patients answer short structured check-ins on the days their protocol schedules, a deterministic rules engine scores each one 🟢/🟡/🔴, and anything not green lands in a risk-ordered queue where the surgeon reviews it and records whether they agree with the triage.
 
-The design decisions I'm proudest of:
+- **Event-sourced.** Every state change is an immutable row in an append-only `events` table. `UPDATE` and `DELETE` are *revoked* on the application's database role and blocked by a trigger, everything queryable is a projection that `rebuild_all()` can reconstruct from scratch.
+- **Protocols are data.** A protocol is a versioned JSON record carrying its check-in questions, schedule, photo requirement, and triage ruleset. Supporting a new specialty means seeding a row. The patient form, the bot's questions, and the surgeon's queue all render from it.
+- **Triage is deterministic.** Rules are `{field, op, value}` conditions, the score is the most severe rule that fired. VLM AI in v0.3, when one photo arrives, it may only *escalate* a score.
 
-- **Event-sourced for real.** Every state change is an immutable row in an append-only `events` table. `UPDATE` and `DELETE` are *revoked* on the application's database role and blocked by a trigger, everything queryable is a projection that `rebuild_all()` can reconstruct from scratch.
-- **Protocols are data, not code.** A protocol is a versioned JSON record carrying its check-in questions, schedule, photo requirement, and triage ruleset. Supporting a new specialty means seeding a row. The patient form, the bot's questions, and the surgeon's queue all render from it.
-- **Triage is deterministic.** Rules are `{field, op, value}` conditions; the score is the most severe rule that fired. VLM AI in v0.3, when one photo arrives, it may only *escalate* a score, never lower it.
-- **The channel is an abstraction.** The domain says "request check-in"; an adapter decides whether that's Telegram (for prototyping, WhatsApp API burocracy sucks), the web app, or WhatsApp later. The core never names a provider.
-
-`FastAPI` · `PostgreSQL` · `React 19` · `TypeScript` · `Docker Compose` · `pytest` · `axe-core`
+`FastAPI` · `PostgreSQL` · `React` · `TypeScript` · `Docker Compose` 
 
 #### 📈 polymarket-copy-bot-rs — copy-trading bot `private`
 
-High-performance Polymarket copy-trading bot in Rust. Polls the Data API for a target wallet's fills, mirrors them through the CLOB with EIP-712-signed orders, and tracks positions in migration-managed SQLite. Handles the unglamorous parts that decide whether a bot survives contact with production: on-chain USDC approval at startup, floor-snapping when the wallet is empty, and downgrading expired-market 404s so the logs stay readable. Made a lot of money from this, but it's hard to find good players to copy >.<
+High-performance Polymarket copy-trading bot in Rust. Polls the Data API for a target wallet's fills, mirrors them through the CLOB with EIP-712-signed orders, and tracks positions in migration-managed SQLite. Handles the unglamorous parts that decide whether a bot survives contact with production: on-chain USDC approval at startup, floor-snapping when the wallet is empty, and downgrading expired-market 404s so the logs stay readable. Made a lot of money from this, but it's hard to find good players to copy >.<. It doesn't work properly since Brazil is banned from polymarket and they changed how the API works
 
 `Rust` · `tokio` · `polymarket-client-sdk` · `alloy` · `sqlx` · `reqwest`
 
 #### 🃏 [fdc-tracker](https://github.com/hitomi1/fdc-tracker) — offline MTG draft tracker `public`
 
-Event tracker for the [*Fora da Caixa* MTG Arena community](https://www.instagram.com/foradacaixamtg). Log for Limited results, no server or account required by default; everything lives in `localStorage` and the app is a fully installable offline PWA. Optional Supabase login syncs events across devices. Includes a performance tab with rolling win-rate charts, full reward tables with net-gem math per record, 17Lands import, and a guided first-run tour.
+Event tracker for the [*Fora da Caixa* MTG Arena community](https://www.instagram.com/foradacaixamtg). Log for Limited results, no server or account required by default, everything lives in `localStorage` and the app is a fully installable offline PWA. Optional Supabase login syncs events across devices. Includes a performance tab with rolling win-rate charts, full reward tables with net-gem math per record, 17Lands import, and a guided first-run tour.
 
 `React 19` · `TypeScript` · `Vite` · `Supabase` · `PWA` · `gh-pages`
 
@@ -86,7 +83,7 @@ Local web app that identifies all 10 players the moment your match begins: rank,
 
 #### ⚙️ [dotfiles](https://github.com/hitomi1/dotfiles) — my environment `public`
 
-Neovim (Lua), kitty, zsh + powerlevel10k, and a one-shot `install.sh`. Reproducible from a bare machine. Needs update since Claude broke my entire setup.
+Neovim (Lua), kitty, zsh + powerlevel10k, and a one shot `install.sh`. Reproducible from a bare machine. Needs update since Claude broke my entire setup.
 
 ---
 
@@ -96,4 +93,4 @@ Neovim (Lua), kitty, zsh + powerlevel10k, and a one-shot `install.sh`. Reproduci
 
 ---
 
-
+Made by AI because I’m not capable of talking about myself like that.
