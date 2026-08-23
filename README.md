@@ -8,10 +8,10 @@
 
 Most of what I build falls into one of two buckets:
 
-- **Systems that can't be wrong** — event-sourced medical software, deterministic triage engines, trading bots that sign real transactions. When a mistake costs money or matters to a patient.
+- **Systems that can't be wrong** — event-sourced data, engines, trading bots. 
 - **Tools for games I actually play** — Magic: The Gathering trackers, Dota 2 analyzers. Small scope, real users, shipped.
 
-Mostly **Rust**, **Python**, and **TypeScript**.
+Mostly  **Python**, **Rust** and **TypeScript**.
 
 ---
 
@@ -19,8 +19,8 @@ Mostly **Rust**, **Python**, and **TypeScript**.
 
 **Languages**
 
-![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 
 **Backend & data**
