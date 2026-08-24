@@ -15,42 +15,6 @@ Mostly  **Python**, **Rust** and **TypeScript**.
 
 ---
 
-### 🛠 Tech
-
-**Languages**
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-
-**Backend & data**
-
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-025E8C?style=for-the-badge&logoColor=white)
-![Apache Spark](https://img.shields.io/badge/Apache_Spark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)
-![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)
-![Tokio](https://img.shields.io/badge/Tokio-000000?style=for-the-badge&logo=rust&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-
-**Frontend**
-
-![React](https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
-![WebAssembly](https://img.shields.io/badge/WebAssembly-654FF0?style=for-the-badge&logo=webassembly&logoColor=white)
-
-**Infra & tooling**
-
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Neovim](https://img.shields.io/badge/Neovim-57A143?style=for-the-badge&logo=neovim&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-
----
-
 ### 📦 Featured work
 
 #### 🏥 Zela — post-operative patient follow-up `private`
@@ -80,10 +44,6 @@ Event tracker for the [*Fora da Caixa* MTG Arena community](https://www.instagra
 Local web app that identifies all 10 players the moment your match begins: rank, ranked win rate, top heroes, and recent matches. With zero manual input and no browser extension. Dota 2 pushes live state to a local server via **Game State Integration**; player IDs are resolved through a three-tier fallback (Steam `GetRealtimeStats` → STRATZ GraphQL → OpenDota polling), stats are fetched concurrently from OpenDota, and results stream to the browser over Server-Sent Events. You can easily identify the bad players on your team and on the enemy team... Good ones are inexistent.
 
 `Python` · `Flask` · `SSE` · `GSI` · `OpenDota` · `STRATZ`
-
-#### ⚙️ [dotfiles](https://github.com/hitomi1/dotfiles) — my environment `public`
-
-Neovim (Lua), kitty, zsh + powerlevel10k, and a one shot `install.sh`. Reproducible from a bare machine. Needs update since Claude broke my entire setup.
 
 ---
 
